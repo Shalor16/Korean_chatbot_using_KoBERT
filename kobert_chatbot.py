@@ -31,9 +31,6 @@ from kobert.pytorch_kobert import get_pytorch_kobert_model
 from transformers import AdamW
 from transformers.optimization import get_cosine_schedule_with_warmup
 
-##GPU 사용 시
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 bertmodel, vocab = get_pytorch_kobert_model()
 
 from google.colab import drive
@@ -61,15 +58,9 @@ class BERTDataset(Dataset):
 
 ## Setting parameters
 max_len = 64
-batch_size = 128
-warmup_ratio = 0.1
-num_epochs = 5
-max_grad_norm = 1
-log_interval = 200
-learning_rate =  5e-5
+
 
 data_train = BERTDataset(dataset_train, 0, 1, tok, max_len, True, False)
-#data_test = BERTDataset(dataset_test, 0, 1, tok, max_len, True, False)
 
 from numpy import dot
 from numpy.linalg import norm
@@ -77,9 +68,6 @@ import numpy as np
 def cos_sim(A, B):
        return dot(A, B)/(norm(A)*norm(B))
 
-data_train.__getitem__(1)[0]
-
-cos_sim(data_train.__getitem__(1)[0],data_train.__getitem__(1)[0])
 
 answers = pd.read_csv("/content/drive/MyDrive/result_answer.tsv", delimiter='\t', header=None)
 
