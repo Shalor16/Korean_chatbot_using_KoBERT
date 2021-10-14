@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/17cSrbCsDh4jD7n2AQYakyECne74EBl4U
 """
 
-!pip install mxnet
-!pip install gluonnlp pandas tqdm
-!pip install sentencepiece
-!pip install transformers==3
-!pip install torch
+# !pip install mxnet
+# !pip install gluonnlp pandas tqdm
+# !pip install sentencepiece
+# !pip install transformers==3
+# !pip install torch
 
-!pip install git+https://git@github.com/SKTBrain/KoBERT.git@master
+# !pip install git+https://git@github.com/SKTBrain/KoBERT.git@master
 
 import torch
 from torch import nn
